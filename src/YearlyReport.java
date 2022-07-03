@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class YearlyReport {
-    
     ArrayList<YearlyRecord> yearlyRecords;
     Reading reading;
     
@@ -14,17 +13,13 @@ public class YearlyReport {
         String contentOfFile = reading.readFileContentsOrNull("resources/y.2021.csv");
         String[] lines = contentOfFile.split("\n");
         for (int i = 1; i < lines.length; i++) {
-
             String[] content = lines[i].split(",");
-
             int month = Integer.valueOf(content[0]);
             double amount = Integer.valueOf(content[1]);
             boolean isExpense = Boolean.valueOf(content[2]);
-
             yearlyRecords.add(new YearlyRecord(month, amount, isExpense));
         }
     }
-
     double getYearIncome(Integer month){
         double income = 0;
         for(YearlyRecord yearlyRecord: yearlyRecords){
@@ -34,7 +29,6 @@ public class YearlyReport {
         }
         return income;
     }
-
     double getYearProfit(Integer month){
         double income = 0;
         for(YearlyRecord yearlyRecord: yearlyRecords){
@@ -44,22 +38,18 @@ public class YearlyReport {
         }
         return income;
     }
-
-
     public void printYearInfo() {
         if (yearlyRecords.isEmpty()) {
             System.out.println("Файлы не считаны");
             return;
         }
         System.out.println("2022 год");
-
         double profit = 0;
         double profitAvg = 0;
         double count = 0;
         double income = 0;
         double incomeAvg = 0;
         String month = "";
-
         for(YearlyRecord yearlyRecord: yearlyRecords){
             if(yearlyRecord.isExpense){
                 income += yearlyRecord.amount;

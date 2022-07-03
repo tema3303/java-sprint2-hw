@@ -2,12 +2,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         MonthlyReports reportMonth = new MonthlyReports();
         YearlyReport reportYear = new YearlyReport();
         Integer[] month = new Integer[]{1,2,3};
-
 
         while (true){
             System.out.println("1. Считать все месячные отчеты");
@@ -16,9 +14,7 @@ public class Main {
             System.out.println("4. Вывести информацию о всех месячных отчётах");
             System.out.println("5. Вывести информацию о годовом отчёте");
             System.out.println("0. Выход");
-
             int command = scanner.nextInt();
-
             if(command == 1){
                 reportMonth.addRecord();
             } else if (command == 2) {
@@ -46,4 +42,3 @@ public class Main {
         }
     }
 }
-

@@ -8,8 +8,4 @@ public class YearlyRecord {
         this.amount = amount;
         this.isExpense = isExpense;
     }
-
-
-
-
 }

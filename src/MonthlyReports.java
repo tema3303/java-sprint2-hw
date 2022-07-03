@@ -3,19 +3,14 @@ import java.util.HashMap;
 
 public class MonthlyReports {
 
-
     HashMap<Integer, ArrayList<MonthlyRecord>> monthReport;
     Reading reading = new Reading();
     Integer[] month;
-    YearlyReport reportYear = new YearlyReport();
-
-
 
     public MonthlyReports() {
         this.monthReport = new HashMap<>();
         this.month = new Integer[]{1, 2, 3};
     }
-
     void addRecord() {
         for (Integer actualMonth : month) {
             String contentOfFile = reading.readFileContentsOrNull("resources/m.20210" + actualMonth + ".csv");
@@ -34,7 +29,6 @@ public class MonthlyReports {
             monthReport.put(actualMonth, monthlyRecords);
         }
     }
-
     void printMonthInfo() {
         if (monthReport.isEmpty()) {
             System.out.println("Файлы не считаны");
@@ -55,10 +49,8 @@ public class MonthlyReports {
             } else if (actualMonth == 3) {
                 month = "Март";
             }
-
             for (MonthlyRecord monthlyRecord : monthlyRecords) {
                 double sum = monthlyRecord.sumOfOne * monthlyRecord.quantity;
-
                 if (!monthlyRecord.isExpense && sum > maxSumProfit) {
                     maxSumProfit = sum;
                     maxItemProfit = monthlyRecord.itemName;
@@ -72,7 +64,6 @@ public class MonthlyReports {
             System.out.println("Самая большая трата: " + maxItemExpense + ". Сумма: " + maxSumExpense);
         }
     }
-
     double getMonthIncome(Integer monthNumber) {
         double income = 0;
         ArrayList<MonthlyRecord> monthlyRecords = monthReport.get(monthNumber);
@@ -84,7 +75,6 @@ public class MonthlyReports {
         }
         return income;
     }
-
     double getMonthProfit(Integer monthNumber) {
         double income = 0;
         ArrayList<MonthlyRecord> monthlyRecords = monthReport.get(monthNumber);
@@ -96,5 +86,4 @@ public class MonthlyReports {
         }
         return income;
     }
-
 }

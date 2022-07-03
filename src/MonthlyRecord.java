@@ -10,7 +10,6 @@ public class MonthlyRecord {
         this.quantity = quantity;
         this.sumOfOne = sumOfOne;
     }
-
     @Override
     public String toString() {
         return
@@ -20,5 +19,4 @@ public class MonthlyRecord {
                 ", sumOfOne=" + sumOfOne +
                 '}';
     }
-
 }
